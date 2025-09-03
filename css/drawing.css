@@ -1,0 +1,437 @@
+/* ===== ÇİZİM PROGRAMI STİLLERİ - CURSOR FİX VERSİYONU ===== */
+.drawing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.drawing-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Canvas Opacity Modes */
+.drawing-overlay.transparent-mode {
+    background: transparent;
+}
+
+.drawing-overlay.transparent-mode .canvas-container {
+    background: transparent;
+}
+
+.drawing-overlay.transparent-mode #drawingCanvas {
+    background: transparent;
+}
+
+/* OVERLAY MODE - SLİDE ÜZERİNDE ÇİZİM */
+.drawing-overlay.overlay-mode {
+    background: transparent !important;
+}
+
+.drawing-overlay.overlay-mode.active {
+    background: transparent !important;
+}
+
+.drawing-overlay.overlay-mode .canvas-container {
+    background: transparent;
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 199;
+}
+
+.drawing-overlay.overlay-mode #drawingCanvas {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 199;
+}
+
+/* Sol Panel - KÜÇÜLTÜLMÜŞ */
+.left-panel {
+    width: 180px; /* 240px'den 180px'e küçültüldü */
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.3);
+    z-index: 201;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100vh;
+}
+
+.drawing-overlay.active .left-panel {
+    transform: translateX(0);
+}
+
+.panel-header {
+    padding: 8px; /* 15px'den 8px'e */
+    background: rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+.panel-header h2 {
+    font-size: 1em; /* 1.3em'den 1em'e */
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.panel-header p {
+    font-size: 0.7em; /* 0.8em'den 0.7em'e */
+    opacity: 0.8;
+    text-align: center;
+}
+
+.tools-container {
+    flex: 1;
+    padding: 8px 6px; /* 15px 10px'den 8px 6px'e */
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 15px'den 8px'e */
+}
+
+.tool-section {
+    flex-shrink: 0;
+}
+
+.section-title {
+    font-size: 0.75em; /* 0.9em'den 0.75em'e */
+    font-weight: 600;
+    margin-bottom: 4px; /* 8px'den 4px'e */
+    color: #ecf0f1;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+}
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 6px; /* 8px 10px'den 4px 6px'e */
+    margin: 2px 0; /* 4px'den 2px'e */
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+    min-height: 24px; /* 35px'den 24px'e */
+}
+
+.tool-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(2px);
+}
+
+.tool-item.active {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-left-color: #fff;
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+}
+
+.tool-number {
+    background: rgba(255,255,255,0.9);
+    color: #2c3e50;
+    width: 16px; /* 20px'den 16px'e */
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.7em; /* 0.8em'den 0.7em'e */
+    margin-right: 6px; /* 8px'den 6px'e */
+    flex-shrink: 0;
+}
+
+.tool-item.active .tool-number {
+    background: #fff;
+    color: #e74c3c;
+}
+
+.tool-icon {
+    font-size: 0.8em; /* 1em'den 0.8em'e */
+    margin-right: 6px; /* 8px'den 6px'e */
+    flex-shrink: 0;
+}
+
+.tool-name {
+    font-weight: 500;
+    flex: 1;
+    font-size: 0.7em; /* 0.85em'den 0.7em'e */
+}
+
+.controls-section {
+    padding: 8px; /* 12px'den 8px'e */
+    background: rgba(0,0,0,0.1);
+    border-top: 2px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+.control-group {
+    margin-bottom: 8px; /* 12px'den 8px'e */
+}
+
+.control-label {
+    font-size: 0.7em; /* 0.8em'den 0.7em'e */
+    margin-bottom: 4px; /* 6px'den 4px'e */
+    color: #ecf0f1;
+    font-weight: 500;
+}
+
+.color-picker {
+    width: 100%;
+    height: 25px; /* 35px'den 25px'e */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.thickness-slider {
+    width: 100%;
+    height: 3px; /* 4px'den 3px'e */
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    background: #ddd;
+    margin-bottom: 4px;
+}
+
+.thickness-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; /* 16px'den 12px'e */
+    height: 12px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.thickness-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    border: none;
+}
+
+.thickness-value {
+    color: white;
+    font-size: 0.7em; /* 0.8em'den 0.7em'e */
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    padding: 3px; /* 4px'den 3px'e */
+    border-radius: 3px;
+}
+
+.canvas-mode-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* 8px'den 4px'e */
+    margin-bottom: 6px; /* 10px'den 6px'e */
+}
+
+.mode-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* 8px'den 4px'e */
+    padding: 4px; /* 8px'den 4px'e */
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-checkbox:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.mode-checkbox.active {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.mode-checkbox input[type="checkbox"] {
+    width: 12px; /* 16px'den 12px'e */
+    height: 12px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.mode-checkbox label {
+    color: white;
+    font-size: 0.7em; /* 0.8em'den 0.7em'e */
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    margin: 0;
+}
+
+.mode-shortcut {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.6em; /* 0.7em'den 0.6em'e */
+    background: rgba(0,0,0,0.2);
+    padding: 1px 3px; /* 2px 4px'den küçültüldü */
+    border-radius: 2px;
+}
+
+.history-controls {
+    display: flex;
+    gap: 3px; /* 5px'den 3px'e */
+    margin-bottom: 6px; /* 10px'den 6px'e */
+}
+
+.history-btn {
+    flex: 1;
+    padding: 4px 2px; /* 8px 4px'den küçültüldü */
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.65em; /* 0.75em'den 0.65em'e */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.history-btn:hover:not(:disabled) {
+    background: rgba(255,255,255,0.2);
+}
+
+.history-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.history-btn:not(:disabled):active {
+    transform: translateY(1px);
+}
+
+.clear-button {
+    width: 100%;
+    padding: 6px; /* 10px'den 6px'e */
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px; /* 8px'den 4px'e */
+    font-size: 0.7em; /* 0.85em'den 0.7em'e */
+}
+
+.clear-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+}
+
+/* Canvas Alanı */
+.canvas-container {
+    flex: 1;
+    position: relative;
+    pointer-events: none;
+    background: #f8f9fa;
+}
+
+.drawing-overlay.active .canvas-container {
+    pointer-events: auto;
+}
+
+#drawingCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+/* ===== KRİTİK CURSOR FİX - ÇİZİM KAPALI DURUMDA ===== */
+
+/* Çizim overlay'i KAPALI - Canvas tamamen devre dışı */
+.drawing-overlay:not(.active) #drawingCanvas {
+    pointer-events: none !important;
+    cursor: default !important;
+    z-index: -1 !important; /* Canvas'ı arkaya gönder */
+}
+
+/* Çizim overlay'i AKTİF - Canvas etkileşimli */
+.drawing-overlay.active #drawingCanvas {
+    pointer-events: auto !important;
+    cursor: crosshair !important;
+    z-index: 199 !important;
+}
+
+/* Tool-specific cursors - SADECE AKTİF DURUMDA */
+.drawing-overlay.active #drawingCanvas.pen-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%232c3e50" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>') 3 21, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.brush-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23e67e22" d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/></svg>') 7 21, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.eraser-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23f39c12" d="M16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17c-.78-.79-.78-2.05 0-2.84l10.6-10.6c.79-.78 2.05-.78 2.83 0z"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.line-cursor,
+.drawing-overlay.active #drawingCanvas.dashed-line-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%233498db" d="M3 17h18v2H3z"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.rectangle-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%239b59b6" d="M2 4h20v16H2z" fill-opacity="0" stroke="%239b59b6" stroke-width="2"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.circle-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%2327ae60" fill-opacity="0" stroke="%2327ae60" stroke-width="2"/></svg>') 12 12, crosshair !important;
+}
+
+/* ===== CANVAS'IN KAPALI DURUMDA HİÇ ETKİLEŞİM YAKALAMADIGI GARANTI ===== */
+.drawing-overlay:not(.active) {
+    display: none !important; /* Overlay tamamen gizlen */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .left-panel {
+        width: 140px; /* Mobilde daha da küçük */
+    }
+    
+    .tool-item {
+        padding: 3px 4px;
+        min-height: 20px;
+    }
+    
+    .tool-name {
+        font-size: 0.6em;
+    }
+    
+    .section-title {
+        font-size: 0.65em;
+    }
+}

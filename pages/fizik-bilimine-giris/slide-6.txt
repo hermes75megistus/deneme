@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Optik - Slide 6</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slide-bg-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6db7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .standard-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .main-card {
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-bottom: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .card-content {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="slide-bg-blue">
+    <div class="slide-content">
+        <h1 class="main-title">🔍 Optik</h1>
+        <h2 class="subtitle">Işığın Yapısı ve Işık Olayları</h2>
+        
+        <div class="standard-card main-card" data-index="0">
+            <h3 class="card-title">🔍 Optik Tanımı</h3>
+            <p class="card-content">Optik; ışığın yapısını ve ışık olaylarını inceleyen fiziğin alt dalıdır.</p>
+        </div>
+        
+        <div class="concepts-grid">
+            <div class="standard-card" data-index="1">
+                <h4 class="card-title">📡 Işığın Yayılması</h4>
+                <p class="card-content">Işığın yayılması optik biliminin incelediği temel konulardandır.</p>
+            </div>
+            <div class="standard-card" data-index="2">
+                <h4 class="card-title">🪞 Işığın Yansıması</h4>
+                <p class="card-content">Işığın yansıması optik biliminin incelediği temel konulardandır.</p>
+            </div>
+            <div class="standard-card" data-index="3">
+                <h4 class="card-title">💎 Işığın Kırılması</h4>
+                <p class="card-content">Işığın kırılması optik biliminin incelediği temel konulardandır.</p>
+            </div>
+        </div>
+        
+        <div class="standard-card" data-index="4">
+            <div class="highlight-text">💡 Optik: Işık olaylarının bilimi 💡</div>
+        </div>
+        
+    </div>
+</body>
+</html>
+<!--
+Önceki slide'da elektromanyetizmayı öğrenmiştik. Şimdi optiğe geçelim ve konumuzu derinleştirelim.
+
+[KART-0] Optik ışığın yapısını ve ışık olaylarını inceleyen fiziğin alt dalıdır.
+
+[KART-1] Işığın yayılması optiğin temel konularındandır. [KART-2] Işığın yansıması da optik biliminin konusudur. [KART-3] Işığın kırılması da optik alanına girer.
+
+[KART-4] Bu ışık olayları günlük yaşamımızda sürekli karşımıza çıkar.
+
+Şimdi nükleer fiziğe geçmeye hazırsınız!
+-->

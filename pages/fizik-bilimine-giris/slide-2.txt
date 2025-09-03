@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiziğin Önemi - Slide 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slide-bg-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6db7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .standard-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .main-card {
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-bottom: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .card-content {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="slide-bg-blue">
+    <div class="slide-content">
+        <h1 class="main-title">💡 Fiziğin Önemi</h1>
+        <h2 class="subtitle">Hayatın İçindeki Fizik</h2>
+        
+        <div class="standard-card main-card" data-index="0">
+            <h3 class="card-title">🌍 Hayatın İçinde Fizik</h3>
+            <p class="card-content">Fizik biliminin hayatın içerisinde ve günlük hayatın birçok yerinde karşımıza çıkıyor olması bu bilimin önemini ortaya koymaktadır.</p>
+        </div>
+        
+        <div class="concepts-grid">
+            <div class="standard-card" data-index="1">
+                <h4 class="card-title">🚗 Araç Güvenliği</h4>
+                <p class="card-content">Islak bir yolda araçların durma mesafesinin artacağını fizik bilimi sayesinde açıklayabiliriz.</p>
+            </div>
+            <div class="standard-card" data-index="2">
+                <h4 class="card-title">🔥 Mikrodalga Fırın</h4>
+                <p class="card-content">Mikrodalga fırınının yiyecekleri nasıl ısıttığını fizik bilimi sayesinde açıklayabiliriz.</p>
+            </div>
+        </div>
+        
+        <div class="concepts-grid">
+            <div class="standard-card" data-index="3">
+                <h4 class="card-title">💡 Işık ve Aydınlatma</h4>
+                <p class="card-content">Lambalardan yayılan ışığın bizi nasıl aydınlattığını fizik bilimi sayesinde açıklayabiliriz.</p>
+            </div>
+            <div class="standard-card" data-index="4">
+                <h4 class="card-title">🛡️ Emniyet Kemeri</h4>
+                <p class="card-content">Emniyet kemerinin bizi nasıl koruduğunu fizik bilimi sayesinde açıklayabiliriz.</p>
+            </div>
+        </div>
+        
+        <div class="standard-card" data-index="5">
+            <div class="highlight-text">🎯 Fizik günlük hayatımızın her yerinde 🎯</div>
+        </div>
+        
+    </div>
+</body>
+</html>
+<!--
+Önceki slide'da fiziğin tanımını öğrenmiştik. Şimdi fiziğin önemine geçelim ve konumuzu derinleştirelim.
+
+[KART-0] Fizik bilimi hayatın içerisinde ve günlük hayatımızın birçok yerinde karşımıza çıkar. Bu da onun önemini gösterir.
+
+[KART-1] Araçların ıslak yolda durma mesafesi artması fizikle açıklanır. [KART-2] Mikrodalga fırınının çalışma prensibi fizik bilimi ile anlaşılır.
+
+[KART-3] Lambaların ışık vererek bizi aydınlatması fizik ile açıklanır. [KART-4] Emniyet kemerinin bizi nasıl koruduğu da fizik bilimi ile anlaşılır.
+
+[KART-5] Bu örnekler fiziğin günlük yaşamımızdaki önemini gösterir.
+
+Şimdi fizik alt dallarına geçmeye hazırsınız!
+-->

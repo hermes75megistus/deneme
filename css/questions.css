@@ -1,0 +1,531 @@
+/* ===== SAĞ PANEL TEST SİSTEMİ - OVERLAY VERSİYONU ===== */
+
+/* Sağ Panel - Test Sistemi - OVERLAY OLARAK */
+.question-right-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 250; /* Slide'ın üzerinde olsun */
+    display: flex;
+    flex-direction: column;
+    box-shadow: -3px 0 15px rgba(0,0,0,0.3);
+}
+
+.question-right-panel.active {
+    transform: translateX(0);
+}
+
+/* Header */
+.question-panel-header {
+    padding: 4px 15px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+}
+
+.question-header-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.question-panel-title {
+    font-size: 1.4em;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.question-panel-subtitle {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.question-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Controls */
+.question-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 80px;
+    white-space: nowrap;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.question-counter {
+    font-size: 1em;
+    opacity: 0.9;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Panel Content */
+.question-panel-content {
+    flex: 1;
+    padding: 10px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-question {
+    background: rgba(255,255,255,0.95);
+    color: #333;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 2px solid transparent;
+    margin-bottom: 8px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Soru görseli */
+.single-question-image {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.single-question-image img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.single-question-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Soru metni */
+.single-question-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.single-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.single-option {
+    background: rgba(103, 126, 234, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 60px;
+    position: relative;
+}
+
+.single-option:hover:not(.disabled) {
+    background: rgba(103, 126, 234, 0.2);
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
+}
+
+.single-option-letter {
+    background: #667eea;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.single-option-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Seçenek görseli */
+.option-image-container {
+    text-align: center;
+}
+
+.option-image-container img {
+    max-width: 150px;
+    max-height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.option-image-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Seçenek metni */
+.single-option-text {
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* Cevap durumları */
+.single-option.correct {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: #22c55e;
+    color: #166534;
+}
+
+.single-option.correct .single-option-letter {
+    background: #22c55e;
+}
+
+.single-option.incorrect {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+.single-option.incorrect .single-option-letter {
+    background: #ef4444;
+}
+
+.single-option.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.single-explanation {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: #1e40af;
+    display: none;
+    grid-column: span 2;
+}
+
+.single-explanation.show {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+.explanation-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1em;
+}
+
+/* Panel Footer */
+.question-panel-footer {
+    background: rgba(0,0,0,0.1);
+    padding: 8px 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+.panel-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.panel-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.panel-btn {
+    padding: 6px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    min-width: 100px;
+}
+
+.btn-close-panel {
+    background: #dc2626;
+}
+
+.btn-reset-panel {
+    background: #6b7280;
+}
+
+.panel-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Sağ Panel İndikatörü */
+.question-right-indicator {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: rgba(103, 126, 234, 0.9);
+    color: white;
+    padding: 12px 8px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.question-right-indicator:hover {
+    background: rgba(103, 126, 234, 1);
+    transform: translateY(-50%) translateX(-5px);
+    box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+}
+
+/* Animasyonlar */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Görsel yükleme animasyonu */
+.single-question-image img,
+.option-image-container img {
+    opacity: 0;
+    animation: imageLoad 0.5s ease forwards;
+}
+
+@keyframes imageLoad {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Görsel hata durumu */
+.image-error {
+    color: #ef4444;
+    font-size: 0.85em;
+    text-align: center;
+    padding: 10px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px dashed #ef4444;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .single-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .single-explanation {
+        grid-column: span 1;
+    }
+    
+    .single-question-image img {
+        max-height: 250px;
+    }
+    
+    .option-image-container img {
+        max-width: 120px;
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .question-right-panel {
+        width: 90vw;
+    }
+    
+    .question-panel-header {
+        padding: 4px 10px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        min-height: auto;
+    }
+    
+    .question-header-left {
+        text-align: center;
+    }
+    
+    .question-header-right {
+        justify-content: center;
+    }
+    
+    .question-panel-title {
+        font-size: 1.2em;
+    }
+    
+    .single-question {
+        padding: 15px;
+    }
+    
+    .single-question-text {
+        font-size: 1.1em;
+    }
+    
+    .single-question-image img {
+        max-height: 200px;
+    }
+    
+    .single-option {
+        padding: 10px;
+        font-size: 0.9em;
+        min-height: 50px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .single-option-letter {
+        margin-top: 0;
+        align-self: center;
+    }
+    
+    .option-image-container img {
+        max-width: 100px;
+        max-height: 60px;
+    }
+    
+    .nav-buttons {
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .nav-btn {
+        min-width: 70px;
+        padding: 5px 8px;
+        font-size: 0.75em;
+    }
+    
+    .panel-controls {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .single-question-image img {
+        max-height: 400px;
+    }
+    
+    .option-image-container img {
+        max-width: 180px;
+        max-height: 120px;
+    }
+    
+    .single-option {
+        min-height: 80px;
+    }
+}
+
+/* Zoom overlay için */
+.image-zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.image-zoom-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}

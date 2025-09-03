@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fizik Nedir - Slide 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slide-bg-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6db7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .standard-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .main-card {
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        
+        .card-content {
+            font-size: 1.05em;
+            line-height: 1.3;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="slide-bg-blue">
+    <div class="slide-content">
+        <h1 class="main-title">🔬 Fizik Nedir?</h1>
+        <h2 class="subtitle">Doğa Biliminin Tanımı</h2>
+        
+        <div class="standard-card main-card" data-index="0">
+            <h3 class="card-title">⚛️ Fizik Tanımı</h3>
+            <p class="card-content">Fizik; uzay, zaman, madde ve enerji arasındaki ilişkiyi inceleyen bilim dalıdır.</p>
+        </div>
+        
+        <div class="standard-card" data-index="1">
+            <h4 class="card-title">🧪 Doğa Bilimi</h4>
+            <p class="card-content">Aynı zamanda bir doğa bilimi olan fizikte çalışmalar gözlem ve deneye dayalı olarak yürütülür.</p>
+        </div>
+        
+        <div class="concepts-grid">
+            <div class="standard-card" data-index="2">
+                <h4 class="card-title">🌌 Çalışma Alanı</h4>
+                <p class="card-content">Fizikteki çalışmalar atom altı parçacıklardan uzak galaksilere kadar geniş bir alanı kapsar.</p>
+            </div>
+            <div class="standard-card" data-index="3">
+                <h4 class="card-title">🔍 Evrenin Keşfi</h4>
+                <p class="card-content">Evrenin işleyişini keşfetmede fizik bilimi önemli çalışmalar yapar.</p>
+            </div>
+        </div>
+        
+        <div class="standard-card" data-index="4">
+            <h4 class="card-title">🔧 Modelleme</h4>
+            <p class="card-content">Bunları anlamlandırmak için de çeşitli modellemeler kullanılır.</p>
+        </div>
+        
+        <div class="standard-card" data-index="5">
+            <div class="highlight-text">🌟 Fizik: Uzay, zaman, madde ve enerji bilimi 🌟</div>
+        </div>
+        
+    </div>
+</body>
+</html>

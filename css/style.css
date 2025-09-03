@@ -1,0 +1,568 @@
+/* ===== GENEL STİLLER ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* ===== ANA SAYFA ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    padding: 40px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+.menu-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    padding: 30px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.menu-card:hover:not(.disabled) {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,1);
+}
+
+.menu-card.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.menu-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.menu-card p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    opacity: 0.8;
+}
+
+/* ===== SLİDE SAYFALARI - OVERLAY UYUMLU ===== */
+.slide-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* Slide boyutları */
+    transform: scale(0.9);
+    transform-origin: center center;
+    
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Çizim aktifken slide pozisyonu - SOL PANEL İÇİN BOŞ YER */
+.slide-container.drawing-active {
+    left: 180px;
+    width: calc(100vw - 180px);
+    transform: scale(0.8) translateX(-80px);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.6s ease;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5px; /* 10px'den 5px'e azaltıldı */
+    /* KRİTİK FİX: Scroll açık ama scrollbar gizli */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Scrollbar'ı gizle */
+.slide::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.slide::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide .slide-container {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* ===== KRİTİK FİX: SLİDE İÇERİK STİLLERİNİ KORUMA ===== */
+
+/* SLIDE İÇİNDEKİ İNLİNE STİLLERİ KORUMAK İÇİN - HİÇBİR ŞEYİ OVERRIDE ETMİYORUZ */
+
+/* Sadece fallback stillerini tanımla - inline style YOKSA uygula */
+.slide-content:not([style]) {
+    max-width: 1080px;
+    width: 100%;
+    min-height: auto;
+    padding: 1vh 2vw;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1vh;
+}
+
+/* Fallback font boyutları - SADECE inline style yoksa */
+.slide .main-title:not([style*="font-size"]),
+.main-title:not([style*="font-size"]) {
+    font-size: min(6vh, 3.8em);
+    line-height: 1.1;
+    margin-bottom: 0.5vh;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: #0f172a;
+}
+
+.slide .subtitle:not([style*="font-size"]),
+.subtitle:not([style*="font-size"]) {
+    font-size: min(4vh, 2.2em);
+    line-height: 1.2;
+    margin-bottom: 1vh;
+    text-align: center;
+    font-weight: 400;
+    opacity: 0.8;
+    color: #334155;
+}
+
+.slide .card-title:not([style*="font-size"]),
+.card-title:not([style*="font-size"]) {
+    font-size: min(3.5vh, 2.2em);
+}
+
+.slide .card-content:not([style*="font-size"]),
+.card-content:not([style*="font-size"]) {
+    font-size: min(2.8vh, 1.7em);
+}
+
+.slide .highlight-text:not([style*="font-size"]),
+.highlight-text:not([style*="font-size"]) {
+    font-size: min(3.5vh, 2em);
+}
+
+/* ===== KART SİSTEMİ - SADECE İNLİNE STYLE YOKSA UYGULA ===== */
+.slide .card:not([style]),
+.slide .standard-card:not([style]),
+.standard-card:not([style]),
+.card:not([style]) {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1.5vh 2vw;
+    margin: 0.5vh 0;
+    min-height: 8vh;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Animasyon başlangıç durumu */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+}
+
+/* Animasyon sınıfları - ÖNEMLİ: Bu kurallar inline stillerin üstünde */
+.slide .card.show,
+.slide .card.visible,
+.slide .card.card-visible,
+.slide .card.animate-in,
+.slide .standard-card.show,
+.slide .standard-card.visible,
+.slide .standard-card.card-visible,
+.slide .standard-card.animate-in,
+.card.show,
+.card.visible,
+.card.card-visible,
+.card.animate-in,
+.standard-card.show,
+.standard-card.visible,
+.standard-card.card-visible,
+.standard-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.slide .card:hover,
+.card:hover,
+.slide .standard-card:hover,
+.standard-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.slide .main-card:not([style]),
+.main-card:not([style]) {
+    min-height: 10vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
+}
+
+/* Grid sistemleri - fallback, inline style varsa uygulanmaz */
+.slide .examples-grid:not([style]),
+.slide .concepts-grid:not([style]),
+.slide .branches-grid:not([style]),
+.examples-grid:not([style]),
+.concepts-grid:not([style]),
+.branches-grid:not([style]) {
+    display: grid;
+    gap: 1vh;
+    margin: 0.5vh 0;
+    width: 100%;
+}
+
+.slide .examples-grid:not([style]),
+.examples-grid:not([style]) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.slide .concepts-grid:not([style]),
+.concepts-grid:not([style]) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.slide .branches-grid:not([style]),
+.branches-grid:not([style]) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Özel slide background stilleri - sadece fallback */
+.slide-bg-blue:not([style]) {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+}
+
+.slide-bg-green:not([style]) {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
+}
+
+.slide-bg-purple:not([style]) {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #e9d5ff 100%);
+}
+
+.slide-bg-orange:not([style]) {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+}
+
+/* Progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(255,255,255,0.9);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.2em;
+    color: #666;
+    background: #f8f9fa;
+}
+
+/* ===== ÇİZİM PANELİ ===== */
+.drawing-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    background: #f7f7f7;
+    z-index: 10;
+    box-shadow: -2px 0 6px rgba(0,0,0,0.1);
+    display: none;
+    pointer-events: none;
+}
+
+.drawing-panel.active {
+    display: block;
+    pointer-events: auto;
+}
+
+/* ===== ÇİZİM OVERLAY SİSTEMİ ===== */
+.drawing-overlay:not(.active) #drawingCanvas {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+.drawing-overlay.active #drawingCanvas {
+    pointer-events: auto !important;
+    cursor: crosshair !important;
+}
+
+/* Tool cursor'ları */
+.drawing-overlay.active #drawingCanvas.pen-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%232c3e50" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>') 3 21, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.brush-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23e67e22" d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/></svg>') 7 21, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.eraser-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23f39c12" d="M16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17c-.78-.79-.78-2.05 0-2.84l10.6-10.6c.79-.78 2.05-.78 2.83 0z"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.line-cursor,
+.drawing-overlay.active #drawingCanvas.dashed-line-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%233498db" d="M3 17h18v2H3z"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.rectangle-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%239b59b6" d="M2 4h20v16H2z" fill-opacity="0" stroke="%239b59b6" stroke-width="2"/></svg>') 12 12, crosshair !important;
+}
+
+.drawing-overlay.active #drawingCanvas.circle-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%2327ae60" fill-opacity="0" stroke="%2327ae60" stroke-width="2"/></svg>') 12 12, crosshair !important;
+}
+
+/* ===== RESPONSİVE - VIEWPORT OLAYLARI İÇİN ===== */
+@media (max-width: 1400px) {
+    .slide-container {
+        transform: scale(0.85);
+    }
+    
+    .slide-container.drawing-active {
+        transform: scale(0.75) translateX(-60px);
+    }
+    
+    /* Slide içeriği için hafif padding azaltma - inline style yoksa */
+    .slide-content:not([style]) {
+        padding: 0.8vh 1.8vw;
+        gap: 0.8vh;
+    }
+    
+    /* Kartlar için fallback - inline style yoksa */
+    .slide .card:not([style]),
+    .slide .standard-card:not([style]),
+    .standard-card:not([style]),
+    .card:not([style]) {
+        padding: 1.2vh 1.8vw;
+        min-height: 7vh;
+    }
+}
+
+@media (max-width: 1200px) {
+    .slide-container {
+        transform: scale(0.8);
+    }
+    
+    .slide-container.drawing-active {
+        transform: scale(0.7) translateX(-50px);
+    }
+    
+    /* Font boyutları için maksimum sınır - inline style yoksa */
+    .slide .main-title:not([style*="font-size"]),
+    .main-title:not([style*="font-size"]) { 
+        font-size: min(5vh, 3.3em); 
+    }
+    .slide .subtitle:not([style*="font-size"]),
+    .subtitle:not([style*="font-size"]) { 
+        font-size: min(3.5vh, 2em); 
+    }
+    .slide .card-title:not([style*="font-size"]),
+    .card-title:not([style*="font-size"]) { 
+        font-size: min(2.2vh, 1.6em); 
+    }
+    .slide .card-content:not([style*="font-size"]),
+    .card-content:not([style*="font-size"]) { 
+        font-size: min(1.8vh, 1.35em); 
+    }
+    
+    .slide .branches-grid:not([style]), 
+    .branches-grid:not([style]) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Orta ekran için compact ayarlar - inline style yoksa */
+    .slide-content:not([style]) {
+        padding: 0.6vh 1.5vw;
+        gap: 0.6vh;
+    }
+    
+    .slide .card:not([style]),
+    .slide .standard-card:not([style]),
+    .standard-card:not([style]),
+    .card:not([style]) {
+        padding: 1vh 1.5vw;
+        margin: 0.3vh 0;
+        min-height: 6vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .menu-card {
+        padding: 25px;
+    }
+
+    .drawing-panel {
+        width: 100%;
+        height: 50vh;
+        bottom: 0;
+        top: auto;
+    }
+    
+    .slide-container {
+        transform: scale(0.7);
+        margin: 5px;
+    }
+    
+    .slide-container.drawing-active {
+        left: 140px;
+        width: calc(100vw - 140px);
+        transform: scale(0.6) translateX(-50px);
+    }
+    
+    /* Mobil için font boyutları - inline style yoksa */
+    .slide .main-title:not([style*="font-size"]),
+    .main-title:not([style*="font-size"]) { 
+        font-size: min(4vh, 2.5em); 
+    }
+    .slide .subtitle:not([style*="font-size"]),
+    .subtitle:not([style*="font-size"]) { 
+        font-size: min(3vh, 1.5em); 
+    }
+    .slide .card-title:not([style*="font-size"]),
+    .card-title:not([style*="font-size"]) { 
+        font-size: min(1.8vh, 1.2em); 
+    }
+    .slide .card-content:not([style*="font-size"]),
+    .card-content:not([style*="font-size"]) { 
+        font-size: min(1.5vh, 1em); 
+    }
+    
+    .slide .branches-grid:not([style]), 
+    .branches-grid:not([style]),
+    .slide .examples-grid:not([style]), 
+    .examples-grid:not([style]),
+    .slide .concepts-grid:not([style]), 
+    .concepts-grid:not([style]) {
+        grid-template-columns: 1fr;
+        gap: 0.5vh;
+    }
+    
+    /* Mobil için ultra compact - inline style yoksa */
+    .slide-content:not([style]) { 
+        padding: 0.5vh 3vw;
+        gap: 0.5vh;
+    }
+    
+    .slide .card:not([style]),
+    .slide .standard-card:not([style]),
+    .standard-card:not([style]),
+    .card:not([style]) {
+        padding: 0.8vh 3vw;
+        margin: 0.2vh 0;
+        min-height: 5vh;
+        border-radius: 15px;
+    }
+}
+
+/* Özel fizik animasyonları için fallback */
+.slide .physics-animation:not([style]),
+.slide .motion-demo:not([style]),
+.slide .pendulum:not([style]),
+.physics-animation:not([style]),
+.motion-demo:not([style]),
+.pendulum:not([style]) {
+    transform: scale(0.8);
+    opacity: 0.8;
+}

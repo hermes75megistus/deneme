@@ -1,0 +1,61 @@
+{
+  "slide": 1,
+  "topic": "Fizik Nedir?",
+  "difficulty": "beginner",
+  "total_questions": 4,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Fizik biliminin tanımı nedir?",
+      "questionImage": "fizik-tanimi.jpg",
+      "options": [
+        "Uzay, zaman, madde ve enerji arasındaki ilişkiyi inceleyen bilim",
+        "Sadece matematiksel formüller kullanan bilim",
+        "Yalnızca laboratuvar deneyleri yapan bilim",
+        "Sadece atom altı parçacıkları inceleyen bilim",
+        "Canlı organizmaları inceleyen bilim"
+      ],
+      "correct": 0,
+      "explanation": "Fizik, uzay, zaman, madde ve enerji arasındaki ilişkiyi inceleyen ve gözlem-deneye dayalı bir doğa bilimidir."
+    },
+    {
+      "id": 2,
+      "questionImage": "universe-star.gif",
+      "options": [
+        "Sadece çok büyük objelerle ilgilenir",
+        "Sadece çok küçük parçacıklarla ilgilenir",
+        "Atom altı parçacıklardan galaksilere kadar her ölçekte çalışır",
+        "Yalnızca Dünya üzerindeki olayları inceler",
+        "Sadece canlı varlıkları inceler"
+      ],
+      "correct": 2,
+      "explanation": "Fizik, atom altı parçacıklardan uzak galaksilere kadar evrenin her ölçeğinde geçerli olan yasaları inceler."
+    },
+    {
+      "id": 3,
+      "question": "Fizik bilimi hakkında aşağıdakilerden hangisi yanlıştır?",
+      "options": [
+        "Gözlem ve deneye dayalı bir bilimdir",
+        "Evrenin sırlarını keşfeden bilimdir",
+        "Rastgele olaylarla ilgilenir",
+        "Doğa bilimlerinden biridir",
+        "Her olayın bilimsel bir açıklaması olduğunu savunur"
+      ],
+      "correct": 2,
+      "explanation": "Fizik rastgelelikle değil, belirli yasalar ve kurallarla açıklanabilen olaylarla ilgilenir. Her olayın bilimsel bir açıklaması vardır."
+    },
+    {
+      "id": 4,
+      "question": "Aşağıdaki durumlardan hangisinde termodinamiğin temel prensiplerinden olan \"ısının sıcak yerden soğuk yere aktığı\" kuralı en net şekilde gözlemlenir?",
+      "options": [
+        "Mikrodalga fırında yiyeceğin ısınması",
+        "Sıcak çayın bardakta soğuması",
+        "Buzdolabının elektrik tüketmesi",
+        "Araç motorunun çalışması",
+        "Güneş panelinin elektrik üretmesi"
+      ],
+      "correct": 1,
+      "explanation": "Sıcak çayın bardakta soğuması, termodinamiğin ikinci yasasının en basit ve net örneğidir. Çay (sıcak) ile çevredeki hava (soğuk) arasında doğal ısı transferi gerçekleşir. Isı her zaman sıcak olan yerden soğuk olan yere akar ve bu süreç kendiliğinden gerçekleşir. Hiçbir dış enerji gerektirmez ve termodinamiğin temel kuralını mükemmel şekilde gösterir. Diğer seçeneklerde ya dış enerji gerekir ya da farklı fiziksel olaylar söz konusudur."
+    }
+  ]
+}

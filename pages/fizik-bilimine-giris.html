@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizik Bilimine Giriş</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/drawing.css">
+    <link rel="stylesheet" href="../css/questions.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-container" id="slideContainer"></div>
+    
+<!-- ÇİZİM OVERLAY SİSTEMİ -->
+<div class="drawing-overlay" id="drawingOverlay">
+    <!-- Sol panel otomatik olarak JavaScript tarafından eklenir -->
+    <div class="canvas-container">
+        <canvas id="drawingCanvas"></canvas>
+    </div>
+</div>
+    
+    <script src="../js/slide-loader.js"></script>
+    <script src="../js/drawing.js"></script>
+    <script src="../js/prompter.js"></script>
+    <script src="../js/question-system.js"></script>
+</body>
+</html>

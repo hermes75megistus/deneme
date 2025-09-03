@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yüksek Enerji ve Plazma Fiziği - Slide 10</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slide-bg-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6db7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .standard-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .main-card {
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-bottom: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .card-content {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="slide-bg-blue">
+    <div class="slide-content">
+        <h1 class="main-title">⚡ Yüksek Enerji ve Plazma Fiziği</h1>
+        <h2 class="subtitle">Atom Altı Parçacıklar ve Plazma</h2>
+        
+        <div class="standard-card main-card" data-index="0">
+            <h3 class="card-title">⚡ Yüksek Enerji ve Plazma Fiziği Tanımı</h3>
+            <p class="card-content">Yüksek enerji fiziği veya parçacık fiziği olarak da adlandırılan bu alt dal, atom altı parçacıkları inceler. Yüksek enerjili parçacıkların etkileşimini ve maddenin plâzma hâlini incelemektedir.</p>
+        </div>
+        
+        <div class="examples-grid">
+            <div class="standard-card" data-index="1">
+                <h4 class="card-title">🔴 LASER Işınları</h4>
+                <p class="card-content">LASER ışınlarının elde edilmesi yüksek enerji ve plazma fiziğinin çalışma alanına girer.</p>
+            </div>
+            <div class="standard-card" data-index="2">
+                <h4 class="card-title">🚀 Roket Sanayisi</h4>
+                <p class="card-content">Roket ve uzay sanayisi yüksek enerji ve plazma fiziğinin çalışma alanına girer.</p>
+            </div>
+        </div>
+        
+        <div class="examples-grid">
+            <div class="standard-card" data-index="3">
+                <h4 class="card-title">♻️ Atık Arıtma</h4>
+                <p class="card-content">Nükleer ve tıbbi atıkların arıtılması yüksek enerji ve plazma fiziğinin çalışma alanına girer.</p>
+            </div>
+            <div class="standard-card" data-index="4">
+                <h4 class="card-title">🔬 CERN Deneyleri</h4>
+                <p class="card-content">CERN deneyleri yüksek enerji ve plazma fiziğinin çalışma alanına girer.</p>
+            </div>
+        </div>
+        
+        <div class="standard-card" data-index="5">
+            <div class="highlight-text">⚡ Atom altı parçacıklar ve plazma hali ⚡</div>
+        </div>
+        
+        <div class="standard-card" data-index="6">
+            <h4 class="card-title">🎯 Sonuç</h4>
+            <p class="card-content">Tebrikler! Fizik bilimi ve tüm 8 alt dalını başarıyla tamamladınız. Bu bilgiler TYT sınavında size büyük avantaj sağlayacaktır.</p>
+        </div>
+        
+    </div>
+</body>
+</html>
+<!--
+Önceki slide'larda fizik biliminin tanımını, önemini ve 7 alt dalını öğrendik. Son olarak yüksek enerji ve plazma fiziğini tamamlayalım ve konumuzu bitirelim.
+
+[KART-0] Yüksek enerji fiziği parçacık fiziği olarak da adlandırılır. Atom altı parçacıkları ve yüksek enerjili parçacık etkileşimlerini, maddenin plazma halini inceler.
+
+[KART-1] LASER ışınlarının elde edilmesi bu alanın konusudur. [KART-2] Roket ve uzay sanayisi de yüksek enerji fiziğinin alanına girer.
+
+[KART-3] Nükleer ve tıbbi atıkların arıtılması bu dal ile yapılır. [KART-4] CERN deneyleri yüksek enerji fiziğinin en önemli örneğidir.
+
+[KART-5] Bu dal atom altının en küçük parçacıklarını inceler.
+
+[KART-6] Tebrikler! Fizik bilimi ve tüm alt dalları konusunu başarıyla tamamladınız. Bu bilgiler TYT fizik sorularında size çok yardımcı olacak.
+
+Tebrikler! Fizik bilimi ve tüm alt dalları konusunu başarıyla tamamladınız!
+-->

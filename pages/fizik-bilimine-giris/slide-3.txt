@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mekanik - Slide 3</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .slide-bg-blue {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6db7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .standard-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .main-card {
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-bottom: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .card-content {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="slide-bg-blue">
+    <div class="slide-content">
+        <h1 class="main-title">⚙️ Mekanik</h1>
+        <h2 class="subtitle">Kuvvet, Hareket ve Denge</h2>
+        
+        <div class="standard-card main-card" data-index="0">
+            <h3 class="card-title">⚙️ Mekanik Tanımı</h3>
+            <p class="card-content">Kuvvet, hareket ve dengeyi inceleyen alt dala mekanik denir.</p>
+        </div>
+        
+        <div class="concepts-grid">
+            <div class="standard-card" data-index="1">
+                <h4 class="card-title">🏛️ Statik</h4>
+                <p class="card-content">Denge durumundaki cisimleri inceler.</p>
+            </div>
+            <div class="standard-card" data-index="2">
+                <h4 class="card-title">🚀 Dinamik</h4>
+                <p class="card-content">Hareketi, kuvvet ve kütleyi dikkate alarak inceler.</p>
+            </div>
+            <div class="standard-card" data-index="3">
+                <h4 class="card-title">📈 Kinematik</h4>
+                <p class="card-content">Harekete neden olan etkiyi dikkate almadan cisimlerin hareketini inceler.</p>
+            </div>
+        </div>
+        
+        <div class="examples-grid">
+            <div class="standard-card" data-index="4">
+                <h4 class="card-title">🚢 Gemi ve Uçak</h4>
+                <p class="card-content">Gemilerin suda gitmesi, uçakların uçması mekaniğin çalışma alanına girer.</p>
+            </div>
+            <div class="standard-card" data-index="5">
+                <h4 class="card-title">🌍 Gezegen Hareketi</h4>
+                <p class="card-content">Gezegenlerin hareketi, köprü ve binaların yapımı mekaniğin alanıdır.</p>
+            </div>
+        </div>
+        
+        <div class="standard-card" data-index="6">
+            <div class="highlight-text">🎯 Mekanik 3 bölüme ayrılır: Statik, Dinamik, Kinematik 🎯</div>
+        </div>
+        
+    </div>
+</body>
+</html>
+<!--
+Önceki slide'larda fizik bilimini ve önemini öğrenmiştik. Şimdi fizik alt dallarına başlıyoruz. İlk olarak mekaniği öğrenelim.
+
+[KART-0] Mekanik kuvvet, hareket ve dengeyi inceleyen alt daldır.
+
+[KART-1] Statik denge durumundaki cisimleri inceler. [KART-2] Dinamik hareketi kuvvet ve kütleyle birlikte inceler. [KART-3] Kinematik ise harekete neden olan etkiyi dikkate almadan hareket inceler.
+
+[KART-4] Gemilerin yüzmesi ve uçakların uçması mekaniğin konusudur. [KART-5] Gezegen hareketleri ve yapı mühendisliği de mekanik alanına girer.
+
+[KART-6] Mekaniğin bu üç bölümü TYT sınavında çok önemlidir.
+
+Şimdi termodinamiğe geçmeye hazırsınız!
+-->
